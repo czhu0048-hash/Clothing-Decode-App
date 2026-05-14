@@ -1,0 +1,14 @@
+# Ignore the environment secrets
+backend_ai/.env
+
+# Ignore the virtual environment
+venv/
+.venv/
+
+# Ignore node modules from frontend (tbc)
+frontend/node_modules/
+dist/
+
+# Python cache files
+__pycache__/
+*.pyc
