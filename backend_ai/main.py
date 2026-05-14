@@ -23,9 +23,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to ["https://reduseaus.me"] in production
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["https://redusetagdecoder-gbhfdmdddgfaaec2.canadacentral-01.azurewebsites.net"],
+    allow_origins=["https://reduseaus.me"],
 )
 
 #  routing 
