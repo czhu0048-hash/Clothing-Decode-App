@@ -104,3 +104,14 @@ async def extract_label(file: UploadFile = File(...)):
         if "RESOURCE_EXHAUSTED" in msg or "429" in msg:
             raise HTTPException(status_code=429, detail="Gemini API quota exceeded. Please wait and try again.")
         raise HTTPException(status_code=500, detail=msg)
+
+
+@app.post("/api/validate-password")
+async def validate_password(body: dict):
+    provided = body.get("password", "")
+    expected = os.getenv("ACCESS_PASSWORD", "")
+    if not expected:
+        raise HTTPException(status_code=500, detail="Server password not configured.")
+    if provided == expected:
+        return {"success": True}
+    raise HTTPException(status_code=401, detail="Incorrect password.")
