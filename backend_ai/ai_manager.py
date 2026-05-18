@@ -60,7 +60,12 @@ async def analyze_sustainability(composition: str, brand: str | None = None) -> 
         "   NEVER return 'N/A' or knowledge-base-not-found messages here.\n"
         "6. badges should reflect fibre properties: e.g. 'organic', 'synthetic', 'biodegradable',\n"
         "   'microplastics', 'recycled', 'mixed-fibre', 'dry-clean-only'.\n"
-        "7. brand_rating: if brand is known, give a brief 1-sentence ethical rating. If unknown, use null.\n"
+        
+        "7. brand_rating: Search Good On You (goodonyou.eco) for the brand's rating. "
+        "Return ONLY the rating label as a short string: one of "
+        "'Great', 'Good', 'It's a Start', 'Not Good Enough', 'We Avoid', or null if not found. "
+        "Never return a sentence. Just the label. Example: 'It\\'s a Start'.\n"
+        
         "8. faqs MUST be an array of objects each with BOTH 'question' AND 'answer' fields.\n"
         "   Provide 4 relevant questions with concise answers about this specific garment's composition.\n"
         "9. NEVER return explanatory sentences like 'not available in the knowledge base' for any field.\n\n"
